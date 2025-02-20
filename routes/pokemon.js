@@ -20,7 +20,7 @@ router.get("/pokemon/:name", async (req, res) => {
   try {
     const { name } = req.params;
     const response = await axios.get(`${API_URL}/${name}`);
-    return res.render("pages/details1", { pokemon: response.data });
+    return res.render("pages/details", { pokemon: response.data });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Internal Server Error" });
@@ -32,7 +32,7 @@ router.get("/search", async (req, res) => {
     const { name } = req.query;
     if (!name) return res.redirect("/");
     const response = await axios.get(`${API_URL}/${name.toLowerCase()}`);
-    return res.render("pages/details1", { pokemon: response.data });
+    return res.render("pages/details", { pokemon: response.data });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Internal Server Error" });

@@ -3,37 +3,46 @@
   <head>
     <%- include("../partials/header") %>
   </head>
-  <body class="bg-gray-100 text-gray-800">
-    <div class="container mx-auto p-5">
-      <h1 class="text-3xl font-bold text-center mb-5 capitalize">
-        <%= pokemon.name %>
-      </h1>
-      <div class="flex flex-col items-center">
+  <body
+    class="bg-gradient-to-b from-blue-500 to-green-500 h-full w-full font-mono"
+  >
+    <div class="inline-block mx-10 p-5 mt-10 relative">
+      <span
+        class="text-2xl text-gray-500 font-bold text-right capitalize mt-88 right-32 absolute"
+      >
+        <%= pokemon.id %> -
+        <span class="text-gray-700 font-bold capitalize"
+          ><%= pokemon.name %>
+        </span></span
+      >
+      <div class="flex flex-col absolute">
         <img
           src="<%= pokemon.sprites.front_default %>"
           alt="<%= pokemon.name %>"
-          class="w-40 h-40"
+          class="items-center mt-45 mx-30 w-40 h-40 mb-5"
         />
-        <p class="text-lg font-semibold">Height: <%= pokemon.height %></p>
-        <p class="text-lg font-semibold">Weight: <%= pokemon.weight %></p>
-        <p class="text-lg font-semibold">
-          Type: <%= pokemon.types.map(t => t.type.name).join(', ') %>
-        </p>
-        <p class="text-lg font-semibold">
-          Abilities: <%= pokemon.abilities.slice(0,3).map(a =>
-          a.ability.name).join(', ') %>
-        </p>
-        <p class="text-lg font-semibold">
-          Moves: <%= pokemon.moves.slice(0,4).map(m => m.move.name).join(', ')
-          %>
-        </p>
-        <!-- <p class="text-lg font-semibold">
-          Stat: <%= pokemon.stats.map(s => s.stat.name).join(', ') %>
-        </p> -->
+        <div
+          class="w-75 mt-105 mx-10 absolute font-bold border-2 p-4 bg-white text-gray-600 rounded-lg shadow-md border-black"
+        >
+          <p class="text-sm font-semibold">Height: <%= pokemon.height %></p>
+          <p class="text-sm font-semibold">Weight: <%= pokemon.weight %></p>
+          <p class="text-sm font-semibold">
+            Type: <%= pokemon.types.map(t => t.type.name).join(', ') %>
+          </p>
+          <p class="text-sm font-semibold">
+            Abilities: <%= pokemon.abilities.slice(0,2).map(a =>
+            a.ability.name).join(', ') %>
+          </p>
+        </div>
       </div>
-      <div class="text-center mt-5">
-        <a href="/" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Back</a>
+      <div class="mt-142 mx-10 absolute">
+        <a
+          href="/"
+          class="bg-gray-800 text-white px-4 py-2 rounded-md shadow-md border-2 border-black relative"
+          ><span class="text-sm font-semibold">Back <</span>
+        </a>
       </div>
+      <img src="/images/pokedex.png" alt="pokedex" />
     </div>
     <%- include("../partials/footer") %>
   </body>
